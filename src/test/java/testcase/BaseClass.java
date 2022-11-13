@@ -10,6 +10,8 @@ import utilities.readConfig;
 
 import java.time.Duration;
 import java.util.Locale;
+import org.apache.logging.log4j.*;
+import java.util.logging.Logger;
 
 public class BaseClass {
     readConfig Read = new readConfig();
@@ -37,6 +39,7 @@ public class BaseClass {
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
+        driver.get(url);
     }
     @AfterClass
     public void teardown(){

@@ -15,11 +15,18 @@ public class homepage {
 
 
     //identify webelements
-    @FindBy(linkText = "Sign in")
-    WebElement signInLink;
+    @FindBy(xpath = "//div/a[@class='theme-btn register-btn']")
+    WebElement clickonregister;
+
+    @FindBy(xpath = "//a/span[@class='navbar-current-user']")
+    WebElement getprofilename;
 
      //action method for signIN
     public void clickonSignIn(){
-        signInLink.click();
+        clickonregister.click();
+    }
+
+    public void getprofilename(){
+        System.out.println(getprofilename.getText());
     }
 }

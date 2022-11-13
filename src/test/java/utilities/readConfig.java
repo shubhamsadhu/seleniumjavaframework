@@ -22,7 +22,7 @@ public class readConfig {
     }
 
     public String geturl(){
-       String value = properties.getProperty("baseurl");
+       String value = properties.getProperty("url");
 
         if (value!=null)
             return value;
