@@ -11,13 +11,15 @@ import utilities.readConfig;
 import java.time.Duration;
 
 public class BaseClass {
-    readConfig Read = new readConfig();
-    String url = Read.geturl();
-    String Browser = Read.getbrowser();
+//   readConfig Read = new readConfig();
+//    String url = Read.geturl();
+//    String Browser = Read.getbrowser();
 
     public static WebDriver driver;
     @BeforeMethod
     public void setup(){
+        String url="https://www.saucedemo.com/";
+        String Browser="edge";
         switch (Browser.toLowerCase())
         {
             case "chrome":
