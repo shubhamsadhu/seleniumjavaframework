@@ -1,17 +1,14 @@
 package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 import utilities.readConfig;
 
 import java.time.Duration;
-import java.util.Locale;
-import org.apache.logging.log4j.*;
-import java.util.logging.Logger;
 
 public class BaseClass {
     readConfig Read = new readConfig();
@@ -19,7 +16,7 @@ public class BaseClass {
     String Browser = Read.getbrowser();
 
     public static WebDriver driver;
-    @BeforeClass
+    @BeforeMethod
     public void setup(){
         switch (Browser.toLowerCase())
         {
@@ -34,14 +31,16 @@ public class BaseClass {
                 break;
 
             default:
-                driver=null;
+                System.out.println("enter correct browser name");
                 break;
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
         driver.get(url);
     }
-    @AfterClass
+
+
+    @AfterMethod
     public void teardown(){
         driver.close();
         driver.quit();
